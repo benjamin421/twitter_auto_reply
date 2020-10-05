@@ -1,0 +1,20 @@
+Please this is for the deployer please first create a database with a model attached to the files I sent him and then deploy the database on the server then deploy the flask app on the server 
+I installed flask by using pip install flask 
+
+and then please after that deploy the twitter bot attached to it 
+
+not that the bot will run every 5 mins and look for unread messages for every users on the web APP 
+I used Tweepy.. Actually the modules are in the twitter file so no p 
+
+and then please I think that is all
+
+but remember deploy the flask first before the twitter app itself and Change the database credentials in the the twitterbot.py and the app.py to the database deployed and also please I used mysql workbench  to create the model so please make sure you use  the model I created thank 
+
+
+It is easy tho 
+
+But I can sick that is why he decided to give it to you 
+
+so please after everything tell me so that I can add the callback url to my twitter developer account 
+
+and then you will restart the server again please that is alll
