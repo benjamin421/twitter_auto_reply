@@ -7,38 +7,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
 
-    <style>
-
-.image .text {
-    position:absolute;
-    top:0px;
-    left:0px;
-    width:300px;
-    text-align:center;
-
-}
-.image .text span {
-    display: block;
-    font-family: "Roboto", sans-serif;
-    font-size: 48px;
-    color: #f7f6f8;
-    text-align:center;
-}
-mark {
-  background-color: rgb(40, 40, 41);
-  color: rgb(248, 244, 244);
-}
-
-</style>
 </head>
-<tr>
-    <div class="image">
-      <img alt="" src="https://www.magisto.com/blog/wp-content/uploads/2019/03/Twitter.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"style="width:100%; "/>
-      <div class="text">
-        <span><mark>Continue By pressing - Login With Twitter</mark></span> 
-        <span><a  href="/api/authorize_twitter" class="btn btn-outline-light" role="button" aria-pressed="true">Login With Twitter</a></span>
+<main id="content" role="main" class="main d-flex  min-vh-100">
+  <!-- Content -->
+  <div class="container-fluid px-3">
+    <div class="row align-items-center">
+      <!-- Cover -->
+      <div class="col-lg-6">
+        
+        <div>
+          <h2 class="display-4">
+            Twitter API
+          </h2>
+          <p class="lead mb-7 mb-md-9">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nibh arcu, mattis ut posuere a, commodo semper nisi. Mauris eget enim quis arcu imperdiet luctus. Proin cursus ipsum vitae eros vulputate, vitae pharetra orci fermentum. Donec ligula magna, elementum quis dictum vitae, porta ut mi.
+          </p>
+          <!-- End Row -->
+        </div>
+      </div>
+      <!-- Cover -->
+      <div class="col-lg-6 min-vh-100" style="height: 100%; background-image: url(https://www.magisto.com/blog/wp-content/uploads/2019/03/Twitter.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500);">
+        
+        <div class="mt-16" style="max-width: 23rem;">
+          
+          <div class="mb-5">
+            <h2 class="display-4 text-white">Continue By pressing - Login With Twitter</h2>
+            <span><a href="/api/authorize_twitter" class="btn btn-outline-light" role="button" aria-pressed="true">Login With Twitter</a></span>
+          </div>
+          <!-- End Row -->
+        </div>
       </div>
     </div>
-    </tr>
+    <!-- End Row -->
+  </div>
+  <!-- End Content -->
+</main>

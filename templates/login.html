@@ -8,119 +8,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
 
-    <style>
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
-
-.login-page {
-  width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
-}
-.form {
-  position: relative;
-  z-index: 1;
-
-  max-width: 360px;
-  margin: 0 auto 100px;
-  padding: 45px;
-  text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-.form input {
-  font-family: "Roboto", sans-serif;
-  outline: 0;
-  background: #f2f2f2;
-  width: 100%;
-  border: 0;
-  margin: 0 0 15px;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 14px;
-}
-.form button {
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
-  outline: 0;
-  background: #01c5f5;
-  width: 100%;
-  border: 0;
-  padding: 15px;
-  color: #FFFFFF;
-  font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
-  cursor: pointer;
-}
-.form button:hover,.form button:active,.form button:focus {
-  background: #01c5f5;
-}
-.form .message {
-  margin: 15px 0 0;
-  color: #b3b3b3;
-  font-size: 12px;
-}
-.form .message a {
-  color: #01c5f5;
-  text-decoration: none;
-}
-.form .register-form {
-  display: none;
-}
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
-}
-.container:before, .container:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.container .info {
-  margin: 50px auto;
-  text-align: center;
-}
-.container .info h1 {
-  margin: 0 0 15px;
-  padding: 0;
-  font-size: 36px;
-  font-weight: 300;
-  color: #1a1a1a;
-}
-.container .info span {
-  color: #4d4d4d;
-  font-size: 12px;
-}
-.container .info span a {
-  color: #000000;
-  text-decoration: none;
-}
-.container .info span .fa {
-  color: #EF3B3A;
-}
-body {
-  background-image:url("https://www.magisto.com/blog/wp-content/uploads/2019/03/Twitter.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"); /* fallback for old browsers */
-  border-image-width:100%;
-  background-color: #cccccc;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
-}
-    </style>
 	</head>
+  
+  <main id="content" role="main" class="main d-flex align-items-center min-vh-100" style="height: 100%; background-image: url(https://www.magisto.com/blog/wp-content/uploads/2019/03/Twitter.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500);">
 
+    <!-- Content -->
+    <div class="container">
 
-	<div class="login-page">
-		<form method="POST" action="/login">
-		<div class="form">
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+          <!-- Card -->
+          <div class="card card-lg mb-5">
+            <div class="card-body mb-5">
+              <!-- Form -->
+              <form method="POST" action="/login">
+                <div class="text-center">
+                  <div class="mb-5">
+                    <h1 class="display-4">Sign in</h1>
+                  </div>
 
-		  <form class="login-form">
-      <input type="text"  name="email_me" placeholder="username"/>
-      <input type="password"  name="Password" placeholder="Passworrd"/>
-      <button>login</button>
-		  </form>
-		</div>
-	  </div>
+                  <a class="btn btn-block btn-white mb-4" href="#">
+                    <span class="d-flex justify-content-center align-items-center">
+                      <img class="avatar avatar-xss mr-2" src="https://image.flaticon.com/icons/png/512/23/23681.png" alt="Image Description">
+                      Sign in with Twitter
+                    </span>
+                  </a>
+
+                  <span class="divider text-muted mb-4">OR</span>
+                </div>
+
+                <!-- Form Group -->
+                <div class="js-form-message form-group">
+                  <label class="input-label" for="signinSrEmail">Your email</label>
+
+                  <input type="email" class="form-control" name="email_me" id="signinSrEmail" tabindex="1" placeholder="email@address.com" aria-label="email@address.com" required="" data-msg="Please enter a valid email address.">
+                </div>
+                <!-- End Form Group -->
+
+                <!-- Form Group -->
+                <div class="js-form-message form-group">
+                  <label class="input-label" for="signupSrPassword" tabindex="0">
+                    <span class="d-flex justify-content-between align-items-center">
+                      Password
+                    </span>
+                  </label>
+
+                  <div class="input-group input-group-merge">
+                    <input type="password" class="js-toggle-password form-control" name="password" placeholder="8+ characters required">
+                  </div>
+                </div>
+                <!-- End Form Group -->
+
+                <!-- Checkbox -->
+                <div class="form-group">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="termsCheckbox" name="termsCheckbox">
+                    <label class="custom-control-label font-size-sm text-muted" for="termsCheckbox"> Remember me</label>
+                  </div>
+                </div>
+                <!-- End Checkbox -->
+
+                <button type="submit" class="btn  btn-block btn-primary">Sign in</button>
+              </form>
+              <!-- End Form -->
+            </div>
+          </div>
+          <!-- End Card -->
+
+        </div>
+      </div>
+    </div>
+    <!-- End Content -->
+  </main>
