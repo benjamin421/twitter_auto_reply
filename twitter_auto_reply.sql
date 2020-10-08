@@ -22,11 +22,11 @@ USE `last` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `last`.`users` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(5000) NULL,
-  `token_access` VARCHAR(5000) NULL,
-  `token_secret` VARCHAR(5000) NULL,
+  `username` VARCHAR(255) NULL,
+  `token_access` VARCHAR(255) NULL,
+  `token_secret` VARCHAR(255) NULL,
   `password` VARCHAR(45) NULL,
-  `messages` VARCHAR(5000) NULL,
+  `messages` TEXT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
 ENGINE = InnoDB;
