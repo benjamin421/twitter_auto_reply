@@ -7083,6 +7083,12 @@ button.bg-dark:hover {
 .min-vh-100 {
     min-height: 100vh !important;
 }
+
+@media (min-width: 768px) {
+    .min-vh-md-100 {
+        min-height: 100vh !important;
+    }
+}
 .vw-100 {
     width: 100vw !important;
 }
