@@ -4,10 +4,10 @@ import MySQLdb
 import mysql.connector
 
 db_connection = mysql.connector.connect(
-host="",
-user="",
-passwd="",
-database ='',
+host="127.0.0.1",
+user="twitter_user",
+passwd="_Twit@user1#",
+database ='last',
 auth_plugin = 'mysql_native_password',
 )
 
