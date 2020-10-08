@@ -108,7 +108,7 @@ def api_callback():
 @app.route('/api/authorize_twitter')
 def authorize_twitter():
 
-    auth = tweepy.OAuthHandler("VXPUp8XJrpPWthVATRWiqGUvl","dKDZvazvzsNHDGHipaUbTfOTYDLCNBXUSTm8GjWIO4qJIGAQ8j","http://127.0.0.1:5000/api/callback")
+    auth = tweepy.OAuthHandler("VXPUp8XJrpPWthVATRWiqGUvl","dKDZvazvzsNHDGHipaUbTfOTYDLCNBXUSTm8GjWIO4qJIGAQ8j","https://twitterautoreply.com/api/callback")
 
     try:
         redirect_url = auth.get_authorization_url()
