@@ -39,7 +39,7 @@ def First_page():
 
 
 
-            return redirect('/thepage')
+            return redirect('/home')
         else:
             cur.execute("INSERT INTO users(username,password) VALUES (%s,%s)",[username,password])
             mysql.connection.commit()
@@ -49,7 +49,7 @@ def First_page():
             session['username'] = username
             session['user_id'] = account[0]
 
-            return redirect(url_for('thepage'))
+            return redirect(url_for('home'))
 
 
 
@@ -62,10 +62,10 @@ def First_page():
 
     return render_template("login.html")
 
-@app.route('/thepage')
-def thepage():
+@app.route('/home')
+def home():
 
-    return render_template('thepage.html')
+    return render_template('home.html')
 
 
 
