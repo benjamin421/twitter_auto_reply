@@ -6,10 +6,10 @@ app=Flask(__name__)
 app.config['SECRET_KEY']='thisisme'
 
 #################################
-app.config['MYSQL_HOST'] = ''
-app.config['MYSQL_USER'] = ''
-app.config['MYSQL_PASSWORD']=''
-app.config['MYSQL_DB']=''
+app.config['MYSQL_HOST'] = '127.0.0.1'
+app.config['MYSQL_USER'] = 'twitter_user'
+app.config['MYSQL_PASSWORD']='_Twit@user1#'
+app.config['MYSQL_DB']='last'
 ###################################
 
 mysql=MySQL(app)
