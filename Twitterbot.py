@@ -17,9 +17,9 @@ data = cur.fetchall()
 
 # while True:
 try:
-    for new_data_me in data:
+  for new_data_me in data:
         # time.sleep(2)
-        # print(new_data_me)
+        print(new_data_me)
         token=new_data_me[2]
         token_secret=new_data_me[3]
         message=new_data_me[5]
@@ -44,18 +44,29 @@ try:
         while True:
 
             last_dms = api.list_direct_messages(1)
-            sender=last_dms[0].message_create['sender_id']
-            print(last_dms)
-            api.send_direct_message(sender,message)
+
+            if last_dms:
+              sender=last_dms[0].message_create['sender_id']
+              print(last_dms)
+
+              try:
+                api.send_direct_message(sender,message)
+
+              except:
+                print('couldnotsenddm')
+
+            else:
+              print('couldnotfetchlastdm')
+
             break
 
 
 
         print('done')
-        time.sleep(300)
+        time.sleep(10)
 
 except:
-    print("it didn't work ")
+    print('did not work')
 
 
 
