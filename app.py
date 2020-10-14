@@ -60,7 +60,7 @@ def First_page():
 
 
 
-    return render_template("login.html")
+    return render_template("home.html")
 
 @app.route('/home')
 def home():
@@ -69,7 +69,7 @@ def home():
 
 @app.route('/logout')
 def logout():
-    # session.clear()
+    session.clear()
     return redirect('/home')
 
 
@@ -88,17 +88,35 @@ def api_callback():
     
     # print(auth.access_token)
     # print(auth.access_token_secret)
-    user_id = session['user_id']
-    print(user_id)
+    # user_id = session['user_id']
+    # print(user_id)
+
+
+    api = tweepy.API(auth, wait_on_rate_limit=True,
+            wait_on_rate_limit_notify=True)
+    user = api.me()
+    
+    cur.execute("SELECT * FROM users WHERE token_access=% s AND token_secret= % s", (auth.access_token, auth.access_token_secret))
+    account=cur.fetchone()
+    if account: 
+        session['loggedin'] = True
+        session['username'] = user.screen_name
+        session['user_id'] = account[0]
+        session['profile'] = user.profile_image_url_https
 
 
 
-    cur.execute("""
-        UPDATE users
-        SET token_access=%s, token_secret=%s
-        WHERE id=%s
-    """, (auth.access_token,auth.access_token_secret,user_id))
-    mysql.connection.commit()
+        return redirect('/dashboard')
+    else:
+        cur.execute("INSERT INTO users(username,token_access,token_secret) VALUES (%s,%s,%s)",[user.screen_name,auth.access_token,auth.access_token_secret])
+        mysql.connection.commit()
+
+        cur.execute("SELECT * FROM users WHERE token_access=% s AND token_secret = % s", (auth.access_token, auth.access_token_secret))
+        account=cur.fetchone()
+        session['loggedin'] = True
+        session['username'] = username
+        session['user_id'] = account[0]
+        session['profile'] = user.profile_image_url_https
 
 
 
@@ -145,6 +163,7 @@ def dashboard():
         mysql.connection.commit()
 
     user_id = session['user_id']
+    
 
     cur.execute("SELECT * FROM users WHERE id=%s",(user_id,))
     data=cur.fetchall()
@@ -155,8 +174,9 @@ def dashboard():
         # print(type(message))
     
     username = session['username']
+    user_image = session['profile']
     # data_us=data
-    return render_template('dashboard.html',username=username,message=data)
+    return render_template('dashboard.html',username=username,user_image=user_image,message=data)
 
 
 
