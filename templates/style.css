@@ -14573,3 +14573,8 @@ label.btn {
     background-color: #377dff;
     opacity: 1;
 }
+@media (max-width: 991px) {
+    .twitter-header {
+        margin-top: 8%;
+    }
+}
