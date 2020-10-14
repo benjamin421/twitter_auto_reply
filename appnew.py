@@ -106,7 +106,7 @@ def api_callback():
 
 
 
-        return redirect('/home')
+        return redirect('/dashboard')
     else:
         cur.execute("INSERT INTO users(username,token_access,token_secret) VALUES (%s,%s,%s)",[user.screen_name,auth.access_token,auth.access_token_secret])
         mysql.connection.commit()
