@@ -69,7 +69,7 @@ def home():
 
 @app.route('/logout')
 def logout():
-    # session.clear()
+    session.clear()
     return redirect('/home')
 
 
@@ -163,6 +163,7 @@ def dashboard():
         mysql.connection.commit()
 
     user_id = session['user_id']
+    
 
     cur.execute("SELECT * FROM users WHERE id=%s",(user_id,))
     data=cur.fetchall()
@@ -173,8 +174,9 @@ def dashboard():
         # print(type(message))
     
     username = session['username']
+    user_image = session['profile']
     # data_us=data
-    return render_template('dashboard.html',username=username,message=data)
+    return render_template('dashboard.html',username=username,user_image=user_image,message=data)
 
 
 
