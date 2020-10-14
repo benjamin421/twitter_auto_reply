@@ -88,8 +88,8 @@ def api_callback():
     
     # print(auth.access_token)
     # print(auth.access_token_secret)
-    user_id = session['user_id']
-    print(user_id)
+    # user_id = session['user_id']
+    # print(user_id)
 
 
     api = tweepy.API(auth, wait_on_rate_limit=True,
