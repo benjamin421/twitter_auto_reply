@@ -102,7 +102,7 @@ def api_callback():
         session['loggedin'] = True
         session['username'] = user.screen_name
         session['user_id'] = account[0]
-        session['profile'] = user.profile_image_url_https
+        session['profile'] = user.profile_image_url_https.replace("normal", "bigger")
 
 
 
@@ -116,7 +116,7 @@ def api_callback():
         session['loggedin'] = True
         session['username'] = username
         session['user_id'] = account[0]
-        session['profile'] = user.profile_image_url_https
+        session['profile'] = user.profile_image_url_https.replace("normal", "bigger")
 
 
 
