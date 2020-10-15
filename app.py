@@ -92,8 +92,8 @@ def api_callback():
     # print(user_id)
 
 
-    api = tweepy.API(auth, wait_on_rate_limit=True,
-            wait_on_rate_limit_notify=True)
+    api = tweepy.API(auth, wait_on_rate_limit=False,
+            wait_on_rate_limit_notify=False)
     user = api.me()
     
     cur.execute("SELECT * FROM users WHERE token_access=% s AND token_secret= % s", (auth.access_token, auth.access_token_secret))
