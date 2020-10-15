@@ -114,7 +114,7 @@ def api_callback():
         cur.execute("SELECT * FROM users WHERE token_access=% s AND token_secret = % s", (auth.access_token, auth.access_token_secret))
         account=cur.fetchone()
         session['loggedin'] = True
-        session['username'] = username
+        session['username'] = user.screen_name
         session['user_id'] = account[0]
         session['profile'] = user.profile_image_url_https.replace("normal", "bigger")
 
