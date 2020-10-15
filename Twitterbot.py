@@ -35,11 +35,15 @@ try:
 
         auth = tweepy.OAuthHandler(API_KEY, API_SECRET)
         auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
+        
+        try:
+          api = tweepy.API(auth, wait_on_rate_limit=True,
+              wait_on_rate_limit_notify=True)
 
-        api = tweepy.API(auth, wait_on_rate_limit=True,
-            wait_on_rate_limit_notify=True)
-
-        time.sleep(2)
+          time.sleep(2)
+       
+        except:
+          print('couldnotauthenticate')
 
         while True:
 
@@ -51,6 +55,7 @@ try:
 
               try:
                 api.send_direct_message(sender,message)
+                print('sentmessage')
 
               except:
                 print('couldnotsenddm')
