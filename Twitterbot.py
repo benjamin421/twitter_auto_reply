@@ -46,8 +46,12 @@ for new_data_me in data:
         print('couldnotauthenticate')
 
       while True:
-
-          last_dms = api.list_direct_messages(1)
+          
+          try:
+            last_dms = api.list_direct_messages(1)
+          
+          except:
+            print('coul not authenticate')
 
           if last_dms:
             sender=last_dms[0].message_create['sender_id']
