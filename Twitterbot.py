@@ -61,9 +61,9 @@ for new_data_me in data:
 
             try:
                   
-              if int(latest_id) > (last_id):
+              if int(latest_id) > int(last_id):
                 api.send_direct_message(sender,message)
-                print('sentmessage')
+                print(int(latest_id),int(last_id),'sentmessage')
                 cur.execute("""
                     UPDATE users
                     SET last_id=%s
