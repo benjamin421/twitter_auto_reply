@@ -23,6 +23,7 @@ for new_data_me in data:
       token=new_data_me[2]
       token_secret=new_data_me[3]
       message=new_data_me[5]
+      last_id=new_data_me[6]
 
 
 
@@ -55,11 +56,21 @@ for new_data_me in data:
 
           if last_dms:
             sender=last_dms[0].message_create['sender_id']
+            latest_id=last_dms[0].id
             print(last_dms)
 
             try:
-              api.send_direct_message(sender,message)
-              print('sentmessage')
+                  
+              if int(latest_id) > (last_id):
+                api.send_direct_message(sender,message)
+                print('sentmessage')
+                cur.execute("""
+                    UPDATE users
+                    SET last_id=%s
+                    WHERE token_secret=%s
+                """, (latest_id,token_secret))
+                db_connection.commit()
+                print(cur.rowcount, "record(s) affected")
 
             except:
               print('couldnotsenddm')
