@@ -76,7 +76,7 @@ for new_data_me in data:
             try:
                   
               if sender==id_:
-                print('No new Message it is the same person')
+                print('No new Message, it is the same person')
               else:
                 api.send_direct_message(sender,message)
                 print(int(latest_id),int(last_id),'sentmessage')
