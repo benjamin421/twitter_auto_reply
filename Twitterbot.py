@@ -24,7 +24,7 @@ for new_data_me in data:
       token_secret=new_data_me[3]
       message=new_data_me[5]
       last_id=new_data_me[6]
-      username_=new_data_me[1]
+ 
 
 
 
@@ -50,9 +50,9 @@ for new_data_me in data:
         print('couldnotauthenticate')
 
       try:
-        user_name=username_
 
-        user=api.get_user(user_name)
+
+        user=api.me()
         # print(user)
         id_=user.id
         # print(id_)
