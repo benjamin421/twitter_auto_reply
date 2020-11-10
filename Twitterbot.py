@@ -24,6 +24,7 @@ for new_data_me in data:
       token_secret=new_data_me[3]
       message=new_data_me[5]
       last_id=new_data_me[6]
+      username_=new_data_me[1]
 
 
 
@@ -37,6 +38,8 @@ for new_data_me in data:
       auth = tweepy.OAuthHandler(API_KEY, API_SECRET)
       auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
 
+
+
       try:
         api = tweepy.API(auth, wait_on_rate_limit=True,
             wait_on_rate_limit_notify=True)
@@ -45,6 +48,17 @@ for new_data_me in data:
 
       except:
         print('couldnotauthenticate')
+
+      try:
+        user_name=username_
+
+        user=api.get_user(user_name)
+        # print(user)
+        id_=user.id
+        # print(id_)
+      except Exception as e:
+        print(e)
+
 
       while True:
           
@@ -61,7 +75,9 @@ for new_data_me in data:
 
             try:
                   
-              if int(latest_id) > int(last_id):
+              if sender==id_:
+                print('No new Message it is the same person')
+              else:
                 api.send_direct_message(sender,message)
                 print(int(latest_id),int(last_id),'sentmessage')
                 cur.execute("""
@@ -87,6 +103,13 @@ for new_data_me in data:
 
 # except:
     # print('did not work')
+
+
+
+
+
+
+
 
 
 
